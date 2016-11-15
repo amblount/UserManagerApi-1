@@ -13,7 +13,8 @@ describe "User API Tests" do
                 first_name: "Foo",
                 last_name: "Bar",
                 username: "foobar",
-                email: "foobar@gmail.com"
+                email: "foobar@gmail.com",
+                password: "Password@1"
             }
         }
 
@@ -33,7 +34,7 @@ describe "User API Tests" do
     end
 
     it "GET /users/:id should return 200" do
-        user = User.create(first_name: "Test", last_name: "Tester", username: "test", email: "test@test.com")
+        user = User.create(first_name: "Test", last_name: "Tester", username: "test", email: "test@test.com", password: "Password@1")
 
         get "/users/#{user.id}/edit"
 
@@ -41,7 +42,7 @@ describe "User API Tests" do
     end
 
     it "PUT /users/:id should return 204" do
-        user = User.create(first_name: "Test", last_name: "Tester", username: "test", email: "test@test.com")
+        user = User.create(first_name: "Test", last_name: "Tester", username: "test", email: "test@test.com", password: "Password@1")
 
         put "/users/#{user.id}", params: {
             user: {
@@ -53,7 +54,7 @@ describe "User API Tests" do
     end
 
     it "DELETE /users/:id should return 200" do
-        user = User.create(first_name: "Test", last_name: "Tester", username: "test", email: "test@test.com")
+        user = User.create(first_name: "Test", last_name: "Tester", username: "test", email: "test@test.com", password: "Password@1")
 
         delete "/users/#{user.id}"
 
